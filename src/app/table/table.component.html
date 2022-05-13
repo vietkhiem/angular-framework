@@ -15,11 +15,22 @@
         <td>{{teacher.id}}</td>
         <td>{{teacher.name}}</td>
         <td>{{teacher.age}}</td>
-        <td>{{teacher.gender ? 'Nam' : 'Nữ'}}</td>
         <td>
-          <img src={{teacher.avatar}} alt="">
-          <!-- <img [src]="teacher.avatar" alt=""> cách 2 ưu tiên -->
+          <app-gender [gender]="teacher.gender ? 'Nam' : 'Nữ'">
+            
+          </app-gender>
         </td>
+        <td>
+          <app-avatar 
+          [src]="teacher.avatar"
+          [age]="teacher.age"
+          >
+        </app-avatar>
+        </td>
+        <!-- <td>
+           <img src={{teacher.avatar}} alt=""> 
+           <img [src]="teacher.avatar" alt=""> cách 2 ưu tiên 
+        </td> -->
       <!-- *ngIf điều kiện   -->
         <td>
           <span *ngIf="teacher.status === 1" class="color-blue">Đang làm việc</span>

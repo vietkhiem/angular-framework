@@ -35,7 +35,7 @@ export class AppComponent {
     {
       id: 'PH10888',
       name: 'vietkhiem1',
-      age: 21,
+      age: 31,
       gender: 1,
       avatar: 'https://picsum.photos/200/100',
       status: 0
