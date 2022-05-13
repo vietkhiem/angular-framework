@@ -16,8 +16,8 @@
         <td>{{teacher.name}}</td>
         <td>{{teacher.age}}</td>
         <td>
-          <app-gender [gender]="teacher.gender ? 'Nam' : 'Nữ'">
-            
+          <app-gender [genz]="teacher.gender">
+             
           </app-gender>
         </td>
         <td>
@@ -33,8 +33,7 @@
         </td> -->
       <!-- *ngIf điều kiện   -->
         <td>
-          <span *ngIf="teacher.status === 1" class="color-blue">Đang làm việc</span>
-          <span *ngIf="teacher.status === 0" class="color-red">Đã nghỉ việc</span>
+          <app-status [stt]="teacher.status"></app-status>
         </td>
       </tr>
     </tbody>

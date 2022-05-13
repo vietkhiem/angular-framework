@@ -1,1 +1,4 @@
-<p>status works!</p>
+<p>
+    <span *ngIf="status === 1" class="color-blue">Đang làm việc</span>
+    <span *ngIf="status === 0" class="color-red">Đã nghỉ việc</span>
+</p>

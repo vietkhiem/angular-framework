@@ -7,9 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class GenderComponent implements OnInit {
 
-  @Input() gender: any;
-
-  constructor() { }
+  @Input('genz') gender: number;
+  constructor() {
+    this.gender = 0;
+  }
 
   ngOnInit(): void {
   }
