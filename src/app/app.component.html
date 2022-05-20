@@ -1,7 +1,88 @@
 <div class="container">
-  <h1>Ds gv</h1>
   <div>
-    <app-table [users]="teachers"></app-table>
+    <h1>Angular Form</h1>
+    <div>
+      <app-form></app-form>
+    </div>
+  </div>
+
+  <hr>
+  
+  <h1 (click)="clickH1()" class="h1">DS GV {{schoolName}}</h1>
+  <!-- Ẩn hiện bảng 
+    Cách 1: sd ngIf
+    Cách 2: dùng 'display-block' : 'display-none'
+   -->
+   <form action="">
+     <input type="text" (keydown)="changeInput($event)" [value]="inputValue"> {{inputValue}}
+   </form>
+  <div>
+    <div>
+      <h2>Form đăng ký thông tin giảng viên </h2>
+      <form action="">
+        <div class="form-group">
+          <label for="">Tên GV</label>
+          <input
+            type="text"
+            class="form-control"
+            (input)="onInput($event, 'name')"
+            [value]="inputValues.name"
+          >
+        </div>
+        <div class="form-group">
+          <label for="">Tuổi GV</label>
+          <input
+            type="number"
+            class="form-control"
+            (input)="onInput($event, 'age')"
+            [value]="inputValues.age"
+          >
+        </div>
+        <div class="form-group">
+          <label for="">Avatar</label>
+          <input
+            type="text"
+            class="form-control"
+            (input)="onInput($event, 'avatar')"
+            [value]="inputValues.avatar"
+          >
+        </div>
+        <p>Gender</p>
+        <div class="form-check">
+          <input
+            type="radio"
+            class="form-check-input"
+            (input)="onInput($event, 'gender')"
+            [checked]="inputValues.gender === '1'"
+            [value]="1"
+          > <label for="html">Nam</label>
+        </div>
+        <div class="form-check">
+          <input
+            type="radio"
+            class="form-check-input"
+            (input)="onInput($event, 'gender')"
+            [checked]="inputValues.gender === '0'"
+            [value]="0"
+          > <label for="html">Nữ</label>
+        </div>
+        <div>
+          <button type="button" (click)="onSubmit()" class="btn btn-success mt-2 mb-5">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+    <button 
+      class="btn btn-primary"
+      (click)="changeTableStatus()"
+      >
+      {{showStatus ? 'Ẩn' : 'Hiện'}} Bảng
+  </button>
+    <app-table [users]="teachers" 
+    *ngIf="showStatus"
+    class="{{showStatus ? 'display-block' : 'display-none'}}"
+    ></app-table>
   </div>
 
   <div>
