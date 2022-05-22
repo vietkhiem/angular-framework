@@ -1,6 +1,6 @@
 <p>{{userForm.valid | json}}</p>
 
-<form action="" #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+<form action="" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
   <div class="form-group">
     <label for="">Tên user</label>
     <input
@@ -35,9 +35,10 @@
     >
     <app-show-validate [field]="email" key="Email"></app-show-validate>
   </div>
+  
   <div>
     <button
-      class="btn btn-success"
+      class="btn btn-success mt-4"
       [disabled]="!userForm.valid"
     >Submit</button>
   </div>
@@ -49,7 +50,7 @@
         <th>Age</th>
         <th>Email</th>
         <th>Phone</th>
-        <th>Avatar</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -59,7 +60,16 @@
         <td>{{user.age}}</td>
         <td>{{user.email}}</td>
         <td>-</td>
-        <td>-</td>
+        <td>
+          <button 
+          class="btn btn-success m-2"
+          (click)="onEdit(user.id)"
+          >Edit</button>
+          <button 
+          class="btn btn-danger"
+          (click)="onDelete(user.id)"
+          >Delete</button>
+        </td>
       </tr>
     </tbody>
   </table>
