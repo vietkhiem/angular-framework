@@ -1,0 +1,35 @@
+<div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tên</th>
+        <th>Tuổi</th>
+        <th>Email</th>
+        <th>SDT</th>
+        <th>Avatar</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.email}}</td>
+        <td>-</td>
+        <td>-</td>
+        <td>
+          <button
+            class="btn btn-warning"
+            (click)="onEdit(user.id)"
+          >Sửa</button>
+          <button
+            class="btn btn-danger"
+            (click)="onDelete(user.id)"
+          >Xoá</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,5 +1,3 @@
-<p>{{userForm.valid | json}}</p>
-
 <form action="" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
   <div class="form-group">
     <label for="">Tên user</label>
@@ -10,7 +8,6 @@
       required minlength="6"
       #name="ngModel"
     >
-    <span>{{age.errors | json}}</span>
     <app-show-validate [field]="name" key="Tên"></app-show-validate>
   </div>
   <div class="form-group">
@@ -25,54 +22,20 @@
     <app-show-validate [field]="age" key="Tuổi"></app-show-validate>
   </div>
   <div class="form-group">
-    <label for="">Email</label>
+    <label for="">Email user</label>
     <input
       type="email"
       class="form-control"
       name="email" [(ngModel)]="inputValues.email"
-      required min="10" max="1000"
+      required email
       #email="ngModel"
     >
     <app-show-validate [field]="email" key="Email"></app-show-validate>
   </div>
-  
   <div>
     <button
-      class="btn btn-success mt-4"
+      class="btn btn-success"
       [disabled]="!userForm.valid"
     >Submit</button>
   </div>
 </form>
-  <div>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-          <td>{{user.id}}</td>
-          <td>{{user.name}}</td>
-          <td>{{user.age}}</td>
-          <td>{{user.email}}</td>
-          <td>-</td>
-          <td>
-            <button
-              class="btn btn-warning"
-              (click)="onEdit(user.id)"
-            >Sửa</button>
-            <button
-              class="btn btn-danger"
-              (click)="onDelete(user.id)"
-            >Xoá</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
