@@ -1,0 +1,28 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="">Name</label>
+    <!-- Định nghĩa thuộc tính để lắng nghe input -->
+    <input
+      type="text"
+      class="form-control"
+      formControlName="name"
+    >
+    <!-- <input type="text" class="form-control" formControlName="price"> -->
+    <!-- <div>
+      <span *ngIf="(productForm.get('name')?.dirty || productForm.get('name')?.touched) && productForm.get('name')?.errors?.['required']">
+        Tên sp không được để trống
+      </span>
+    </div> -->
+    <!-- productForm.get('tên thuộc tính = new FormGroup()') sẽ là kết quả khi lắng nghe -->
+    <app-show-validate
+      [field]="productForm.get('name')"
+      key="Tên sản phẩm"
+    ></app-show-validate>
+  </div>
+  <div>
+    <button
+      class="btn btn-success"
+      [disabled]="!productForm.valid"
+    >Submit</button>
+  </div>
+</form>

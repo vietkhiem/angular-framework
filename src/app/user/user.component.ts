@@ -17,7 +17,7 @@ export class UserComponent implements OnInit {
     id: 0,
     name: '',
     age: 0,
-    email: ''
+    email: '',
   };
 
   users = [
@@ -26,18 +26,21 @@ export class UserComponent implements OnInit {
       name: 'Viekhiem',
       age: 21,
       email: 'Viekhiem@fpt.edu.vn',
+      avatar: 'https://picsum.photos/150/100',
     },
     {
       id: 15,
       name: 'Viekhiem1',
       age: 21,
       email: 'Viekhiem@fpt.edu.vn',
+      avatar: 'https://picsum.photos/150/100',
     },
     {
       id: 10,
       name: 'Viekhiem2',
       age: 12,
       email: 'Viekhiem@fpt.edu.vn',
+      avatar: 'https://picsum.photos/150/100',
     },
   ];
 

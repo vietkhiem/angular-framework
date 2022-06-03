@@ -1,0 +1,28 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Desc</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product._id}}</td>
+            <td>{{product.name}}</td>
+            <td>
+                <img src={{product.img}} alt="" width="200px">
+            </td>
+            <td>{{product.desc}}</td>
+            <td>
+                <a routerLink="/admin/products/{{product._id}}">Detail</a>
+                <!-- <a [routerLink]="['/admin', 'products', product.id]">
+                  <button class="btn btn-info">Detail</button>
+                </a> -->
+                <button class="btn btn-danger" (click)="onDelete(product._id)">Delete</button>
+              </td>
+          </tr>
+    </tbody>
+</table>

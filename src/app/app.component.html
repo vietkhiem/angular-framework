@@ -1,22 +1,5 @@
 <div class="container">
   <h1>Router</h1>
-  <nav>
-    <ul>
-      <!-- sd routerLink thay vì href -->
-      <li>
-        <a routerLink="/">Home</a>
-      </li>
-      <li>
-        <a routerLink="/user">User</a>
-      </li>
-      <li>
-        <a routerLink="/user/create">User Form</a>
-      </li>
-      <li>
-        <a routerLink="/user/edit">User Edit</a>
-      </li>
-    </ul>
-  </nav>
   <div>
     <!-- đây là nơi components ở toutes đc render ra  -->
     <router-outlet></router-outlet>
@@ -24,22 +7,21 @@
   <div>
     <!-- <h1>Angular Form</h1> -->
     <div>
-      <app-user></app-user>
+      <!-- <app-user></app-user> -->
       <!-- <app-form></app-form> -->
     </div>
   </div>
 
-  <hr>
   
-  <h1 (click)="clickH1()" class="h1">DS GV {{schoolName}}</h1>
+  <!-- <h1 (click)="clickH1()" class="h1">DS GV {{schoolName}}</h1> -->
   <!-- Ẩn hiện bảng 
     Cách 1: sd ngIf
     Cách 2: dùng 'display-block' : 'display-none'
    -->
-   <form action="">
+   <!-- <form action="">
      <input type="text" (keydown)="changeInput($event)" [value]="inputValue"> {{inputValue}}
-   </form>
-  <div>
+   </form> -->
+  <!-- <div>
     <div>
       <h2>Form đăng ký thông tin giảng viên </h2>
       <form action="">
@@ -106,15 +88,15 @@
     *ngIf="showStatus"
     class="{{showStatus ? 'display-block' : 'display-none'}}"
     ></app-table>
-  </div>
+  </div> -->
 
-  <div>
-    <!--
+  <!-- <div>
+    
       B1: gọi component con <app-name></app-name>
       B2: định nghĩa việc truyền và nhận dữ liệu tĩnh <app-name name="1234"></app-name>
       B3: truyền dữ liệu động <app-name [name]="studentName"></app-name>
-     -->
+     
     Name: <app-name [name]="studentName"></app-name>
     MSV: <app-identity [id]="studentId"></app-identity>
-  </div>
+  </div> -->
 </div>

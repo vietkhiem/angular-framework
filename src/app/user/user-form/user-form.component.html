@@ -32,6 +32,17 @@
     >
     <app-show-validate [field]="email" key="Email"></app-show-validate>
   </div>
+  <div class="form-group">
+    <label for="">Phone user</label>
+    <input
+      type="text"
+      class="form-control"
+      name="email" [(ngModel)]="inputValues.phone"
+      required email
+      #email="ngModel"
+    >
+    <app-show-validate [field]="email" key="Email"></app-show-validate>
+  </div>
   <div>
     <button
       class="btn btn-success"
