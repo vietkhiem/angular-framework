@@ -3,25 +3,33 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Image</th>
-            <th>Desc</th>
+            <!-- <th>Image</th> -->
+            <!-- <th>Desc</th> -->
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let product of products">
-            <td>{{product._id}}</td>
+            <td>{{product.id}}</td>
             <td>{{product.name}}</td>
-            <td>
+            <!-- <td>
                 <img src={{product.img}} alt="" width="200px">
-            </td>
-            <td>{{product.desc}}</td>
+            </td> -->
+            <!-- <td>{{product.desc}}</td> -->
             <td>
-                <a routerLink="/admin/products/{{product._id}}">Detail</a>
+                <button
+                    *ngIf="product.status === 1"
+                    class="btn btn-success"
+                    (click)=""
+                >ON</button>
+            </td>
+            <td>
+                <a routerLink="/admin/products/{{product.id}}"><button class="btn btn-success">Detail</button></a>
                 <!-- <a [routerLink]="['/admin', 'products', product.id]">
                   <button class="btn btn-info">Detail</button>
                 </a> -->
-                <button class="btn btn-danger" (click)="onDelete(product._id)">Delete</button>
+                <a routerLink="/admin/products/edit/{{product.id}}"><button class="btn btn-success ml-5">Edit</button></a>
+                <button class="btn btn-danger ml-5" (click)="onDelete(product.id)">Delete</button>
               </td>
           </tr>
     </tbody>

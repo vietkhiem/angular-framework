@@ -16,10 +16,11 @@ export class AdminProductDetailComponent implements OnInit {
     private activateRoute: ActivatedRoute
   ) {
     this.product = {
-      _id: '',
+      id: 0,
       name: '',
       desc: '',
-      img: ''
+      img: '',
+      status: 0
     };
   }
 

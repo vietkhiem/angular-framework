@@ -1,10 +1,12 @@
 export type Product = {
-    _id: number | string;
+    id: number | string;
     name: string,
     img: string,
     desc: string,
+    status: number
 }
 
 export type ProductCreate = {
-    name: string
+    name: string,
+    status?: number
 }
