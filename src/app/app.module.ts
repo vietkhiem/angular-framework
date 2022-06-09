@@ -28,7 +28,17 @@ import { AdminProductListComponent } from './pages/admin/admin-product/admin-pro
 import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-product-detail/admin-product-detail.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { HeaderComponent } from './component/client-page/header/header.component';
+import { ProductComponent } from './component/client-page/product/product.component';
+import { BannerComponent } from './component/client-page/banner/banner.component';
+import { PartnersComponent } from './component/client-page/partners/partners.component';
+import { ReviewComponent } from './component/client-page/review/review.component';
+import { ReadComponent } from './component/client-page/read/read.component';
+import { FooterComponent } from './component/client-page/footer/footer.component';
+import { ChoseComponent } from './component/client-page/chose/chose.component';
+import { NewsComponent } from './component/client-page/news/news.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +60,16 @@ import { HttpClientModule } from '@angular/common/http'
     AdminProductListComponent,
     AdminProductDetailComponent,
     AdminProductFormComponent,
+    LoginComponent,
+    HeaderComponent,
+    ProductComponent,
+    BannerComponent,
+    PartnersComponent,
+    ReviewComponent,
+    ReadComponent,
+    FooterComponent,
+    ChoseComponent,
+    NewsComponent,
   ],
   imports: [
     BrowserModule,

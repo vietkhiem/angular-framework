@@ -8,6 +8,8 @@ import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserComponent } from './user/user.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { CanAccessAdminGuard } from './guard/can-access-admin.guard';
 
 const routes: Routes = [
 
@@ -29,17 +31,8 @@ const routes: Routes = [
     path: 'admin',
     component: AdminLayoutComponent,
     children: [
-      // {
-      //   path: '',
-      //   redirectTo: 'users',
-      //   pathMatch: 'full'
-      // },
-      // {
-      //   path: 'users',
-      //   component: UserComponent
-      // },
       {
-        path: 'products',
+        path: 'books',
         children: [
           {
             path: '',
@@ -58,6 +51,15 @@ const routes: Routes = [
             component: AdminProductDetailComponent
           }
         ]
+      },
+    ]
+  },
+  {
+    path: 'auth',
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
       }
     ]
   }
@@ -85,6 +87,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [CanAccessAdminGuard]
 })
 export class AppRoutingModule { }

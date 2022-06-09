@@ -20,8 +20,8 @@ export class ProductService {
     return this.http.get<Product>(`${environment.products}/${id}`);
   }
 
-  deleteProduct(id: number | string): Observable<any> {
-    return this.http.delete(`${environment.products}/${id}`);
+  deleteProduct(_id: number | string): Observable<any> {
+    return this.http.delete(`${environment.products}/${_id}`);
   }
 
   // Dữ liệu gửi đi {name: string}, nhận về {id: number, name: string}
@@ -29,7 +29,7 @@ export class ProductService {
     return this.http.post<Product>(`${environment.products}`, data);
   }
 
-  updateProduct(id: string, data: ProductCreate): Observable<Product> {
-    return this.http.put<Product>(`${environment.products}/${id}`, data)
+  updateProduct(_id: string, data: ProductCreate): Observable<Product> {
+    return this.http.put<Product>(`${environment.products}/${_id}`, data)
   }
 }

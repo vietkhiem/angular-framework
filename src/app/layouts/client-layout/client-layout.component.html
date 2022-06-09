@@ -1,23 +1,17 @@
-<div class="container">
-    <header>Header
-        <nav>
-            <ul>
-              <!-- sd routerLink thay vì href -->
-              <li>
-                <a routerLink="/">Home</a>
-              </li>
-              <li>
-                <a routerLink="/user">User</a>
-              </li>
-              <li>
-                <a routerLink="/admin">Admin-User</a>
-              </li>
-        
-            </ul>
-          </nav>
-    </header>
-    <div>
-        <router-outlet></router-outlet>
-    </div>
-    <footer>Footer</footer>
+<div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+	<app-header></app-header>
+
+	<app-product></app-product>
+
+	<app-banner></app-banner>
+
+	<app-chose></app-chose>
+
+	<app-partners></app-partners>
+
+	<app-review></app-review>
+
+	<app-news></app-news>
+	
+	<app-footer></app-footer>
 </div>

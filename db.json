@@ -1,16 +1,24 @@
 {
   "products": [
     {
-      "name": "Iphone 155 product",
-      "id": 5
-    },
-    {
-      "name": "abcdef product",
+      "name": "abc product",
       "id": 9
     },
     {
-      "name": "Iphone 12 product ",
+      "status": 0,
       "id": 10
+    },
+    {
+      "name": "product Iphone 16 update",
+      "status": 1,
+      "id": 11
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@gmail.com",
+      "password": "$2a$12$xWq15LmzByGVSndV.FlkLu6NVQXy.lS9MI23wtWv0TyNtslf793C2"
     }
   ]
 }

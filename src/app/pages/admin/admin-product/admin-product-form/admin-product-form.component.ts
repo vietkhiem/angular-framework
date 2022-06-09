@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../../../services/product.service';
 
 @Component({
@@ -10,12 +10,12 @@ import { ProductService } from '../../../../services/product.service';
 })
 export class AdminProductFormComponent implements OnInit {
   productForm: FormGroup;
-  productId: string
+  productId: string;
 
   constructor(
     private productService: ProductService, // các phương thức call API
-    private router: Router, // điều hướng
-    private activatedRoute: ActivatedRoute
+    private router: Router, // điều hướng,
+    private activateRoute: ActivatedRoute // lấy các tham số trên url
   ) {
     this.productForm = new FormGroup({
       // name: new FormControl('', Validators.required), // FormControl(giá trị mặc định)
@@ -23,21 +23,27 @@ export class AdminProductFormComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(32),
-        this.onValidateNameHasProduct // chỉ gọi lại tên của hàm validate
+        this.onValidateNameHasBook // chỉ gọi lại tên của hàm validate
       ]), // FormControl(giá trị mặc định)
-      // price: new FormControl(0)
+      price: new FormControl(0),
+      img: new FormControl(''),
+      desc: new FormControl(''),
     });
     this.productId = '';
   }
 
   ngOnInit(): void {
-    this.productId = this.activatedRoute.snapshot.params['id'];
+    this.productId = this.activateRoute.snapshot.params['id']; // +'5'
+
     if (this.productId) {
       this.productService.getProduct(+this.productId).subscribe(data => {
-        // cập nhật data cho form
+        // Cập nhật data cho form (data: {id: 5, name: '...'})
         this.productForm.patchValue({
-          name: data.name
-        })
+          name: data.name,
+          price: data.price,
+          img: data.img,
+          desc: data.desc,
+        });
       })
     }
   }
@@ -49,30 +55,35 @@ export class AdminProductFormComponent implements OnInit {
   //   return null;
   // }
 
-  onValidateNameHasProduct(control: AbstractControl): ValidationErrors | null {
+  onValidateNameHasBook(control: AbstractControl): ValidationErrors | null {
     const inputValue = control.value;
 
-    if (!inputValue.includes('product')) {
-      return { hasProductError: true };
+    if (!inputValue.includes('book')) {
+      return { hasBookError: true };
     }
+
     return null;
   }
+
   redirectToList() {
-    this.router.navigateByUrl('/admin/products')
+    this.router.navigateByUrl('/admin/books');
   }
+
   onSubmit() {
-    console.log(this.productForm.value);
     // 1. nhận dữ liệu từ form => this.productForm.value
     const data = this.productForm.value;
+
     if (this.productId !== '' && this.productId !== undefined) {
       return this.productService.updateProduct(this.productId, data).subscribe(data => {
         this.redirectToList();
       })
     }
+
     // 2. Call API tạo mới
     return this.productService.createProduct(data).subscribe(data => {
       // 3. Quay lại danh sách product
-      this.redirectToList()
+      // this.router.navigate(['/admin', 'products']);
+      this.redirectToList();
       // 3.1 Khi đã quay về list thì ngOnInit trong list sẽ lại được chạy và call API
       // lấy ds mới
     })

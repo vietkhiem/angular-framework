@@ -16,11 +16,13 @@ export class AdminProductDetailComponent implements OnInit {
     private activateRoute: ActivatedRoute
   ) {
     this.product = {
-      id: 0,
+      _id: '',
       name: '',
-      desc: '',
+      price: 0,
       img: '',
-      status: 0
+      desc: '',
+      status: 0,
+
     };
   }
 
@@ -31,6 +33,8 @@ export class AdminProductDetailComponent implements OnInit {
 
     this.productService.getProduct(idFromUrl).subscribe(data => {
       this.product = data;
+      // console.log(this.product);
+
     })
   }
 
