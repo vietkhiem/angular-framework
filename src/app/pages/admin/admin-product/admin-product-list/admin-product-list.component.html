@@ -1,6 +1,6 @@
 <div>
     <a routerLink="/admin/books/create">
-      <button class="btn btn-primary">Create</button>
+      <button class="btn btn-primary mb-5">Add New Book</button>
     </a>
   </div>
   
@@ -33,14 +33,14 @@
           >OFF</button>
         </td> -->
         <td>
-          <a routerLink="/admin/books/{{product._id}}">Detail</a>
+          <!-- <a routerLink="/admin/books/{{product._id}}">Detail</a> -->
           <!-- <a [routerLink]="['/admin', 'products', product.id]">
             <button class="btn btn-info">Detail</button>
           </a> -->
           <a routerLink="/admin/books/edit/{{product._id}}">
             <button class="btn btn-warning">Edit</button>
           </a>
-          <button class="btn btn-danger" (click)="onDelete(product._id)">Delete</button>
+          <button class="btn btn-danger m-5" (click)="onDelete(product._id)">Delete</button>
         </td>
       </tr>
     </tbody>

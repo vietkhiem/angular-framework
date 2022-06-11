@@ -1,4 +1,3 @@
-import { SigninComponent } from './pages/auth/signin/signin.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-product-detail/admin-product-detail.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
@@ -12,8 +11,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CanAccessAdminGuard } from './guard/can-access-admin.guard';
 import { ProductComponent } from './component/client-page/product/product.component';
 import { ProductDetailComponent } from './component/client-page/product-detail/product-detail.component';
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { SignupComponent } from './pages/auth/signup/signup.component';
+import { SigninComponent } from './pages/auth/signin/signin.component';
 
 const routes: Routes = [
 
@@ -73,7 +72,6 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    component: AuthLayoutComponent,
     children: [
       {
         path: 'signin',

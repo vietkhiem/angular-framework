@@ -1,1 +1,51 @@
-<p>signin works!</p>
+
+<!--For all screen-->
+<div class="page">
+
+
+    <!--Login & Signup in single row-->
+    <div class="row">
+    
+      
+    <!--Column for signin-->
+      <div class="col-sm-8 text-center signin">
+    
+    
+        <!-- Default form login -->
+        <form class="mt-10" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+          <p class="h4 mb-4 text-center signintext top"><strong>Sign in to this Website</strong></p>
+    
+          <!--Login with Social Media Buttons-->
+          <div class="social-btn text-center">
+            <a href="#" class="btn btn-primary btn-lg" title="Facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="btn btn-info btn-lg" title="Twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="btn btn-danger btn-lg" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+          </div>
+      
+            <p class="text-center signintext">Or use your Email account</p>
+      
+            <!-- Email -->
+            <input type="email" class="form-control mb-4"  placeholder="&#xf0e0; Email" style="font-family:Arial, FontAwesome" formControlName="email">
+      
+            <!-- Password -->
+            <input type="password" class="form-control mb-4" placeholder="&#xf023;  Password" style="font-family:Arial, FontAwesome" formControlName="password">
+      
+          
+            <!-- Sign in button -->
+            <button class="btn btn-info btn-block LoginBtn" type="submit" >SIGN IN</button>
+      
+    
+        </form>
+    
+      </div>
+    
+    <!--Column for signin-->
+      <div class="col-sm-4 signup text-center">
+        <h2 class="HelloFriend">Hello, Friend!</h2>
+        <h4 class="SignupText">Enter your personal details<br>and start journey with us</h4>
+        <button class="btn btn-info btn-block signupbtn" type="submit" >SIGN UP</button>
+    
+      </div>
+    </div>
+    </div>

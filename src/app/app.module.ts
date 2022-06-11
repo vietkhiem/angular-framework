@@ -1,3 +1,4 @@
+import { NgToastModule } from 'ng-angular-popup';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -38,7 +39,6 @@ import { FooterComponent } from './component/client-page/footer/footer.component
 import { ChoseComponent } from './component/client-page/chose/chose.component';
 import { NewsComponent } from './component/client-page/news/news.component';
 import { ProductDetailComponent } from './component/client-page/product-detail/product-detail.component';
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { SignupComponent } from './pages/auth/signup/signup.component';
 import { SigninComponent } from './pages/auth/signin/signin.component';
 @NgModule({
@@ -71,7 +71,6 @@ import { SigninComponent } from './pages/auth/signin/signin.component';
     ChoseComponent,
     NewsComponent,
     ProductDetailComponent,
-    AuthLayoutComponent,
     SignupComponent,
     SigninComponent,
   ],
@@ -83,7 +82,8 @@ import { SigninComponent } from './pages/auth/signin/signin.component';
     FormsModule,
     ReactiveFormsModule,
 
-    HttpClientModule
+    HttpClientModule,
+    NgToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

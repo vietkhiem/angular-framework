@@ -10,3 +10,8 @@ export type TypeLoginResponse = {
         email: string
     }
 };
+
+export type TypeSignupRequest = {
+    email: string,
+    password: string
+};

@@ -43,6 +43,7 @@ export class AdminProductFormComponent implements OnInit {
           price: data.price,
           img: data.img,
           desc: data.desc,
+          status: data.status
         });
       })
     }
