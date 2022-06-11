@@ -7,7 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TableComponent } from './table/table.component';
 import { TableNameComponent } from './table/table-name/table-name.component';
 import { IdentityComponent } from './identity/identity.component';
-import { NameComponent } from './name/name.component';
 import { GenderComponent } from './table/gender/gender.component';
 import { StatusComponent } from './table/status/status.component';
 import { AvatarComponent } from './table/avatar/avatar.component';
@@ -29,7 +28,6 @@ import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-p
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './pages/auth/login/login.component';
 import { HeaderComponent } from './component/client-page/header/header.component';
 import { ProductComponent } from './component/client-page/product/product.component';
 import { BannerComponent } from './component/client-page/banner/banner.component';
@@ -39,13 +37,16 @@ import { ReadComponent } from './component/client-page/read/read.component';
 import { FooterComponent } from './component/client-page/footer/footer.component';
 import { ChoseComponent } from './component/client-page/chose/chose.component';
 import { NewsComponent } from './component/client-page/news/news.component';
+import { ProductDetailComponent } from './component/client-page/product-detail/product-detail.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { SignupComponent } from './pages/auth/signup/signup.component';
+import { SigninComponent } from './pages/auth/signin/signin.component';
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
     TableNameComponent,
     IdentityComponent,
-    NameComponent,
     GenderComponent,
     StatusComponent,
     AvatarComponent,
@@ -60,7 +61,6 @@ import { NewsComponent } from './component/client-page/news/news.component';
     AdminProductListComponent,
     AdminProductDetailComponent,
     AdminProductFormComponent,
-    LoginComponent,
     HeaderComponent,
     ProductComponent,
     BannerComponent,
@@ -70,6 +70,10 @@ import { NewsComponent } from './component/client-page/news/news.component';
     FooterComponent,
     ChoseComponent,
     NewsComponent,
+    ProductDetailComponent,
+    AuthLayoutComponent,
+    SignupComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { SigninComponent } from './pages/auth/signin/signin.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-product-detail/admin-product-detail.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
@@ -8,8 +9,11 @@ import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserComponent } from './user/user.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './pages/auth/login/login.component';
 import { CanAccessAdminGuard } from './guard/can-access-admin.guard';
+import { ProductComponent } from './component/client-page/product/product.component';
+import { ProductDetailComponent } from './component/client-page/product-detail/product-detail.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { SignupComponent } from './pages/auth/signup/signup.component';
 
 const routes: Routes = [
 
@@ -20,6 +24,19 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent
+      },
+      {
+        path: 'book',
+        children: [
+          {
+            path: '',
+            component: ProductComponent
+          },
+          {
+            path: ':id',
+            component: ProductDetailComponent
+          }
+        ]
       },
       {
         path: 'user',
@@ -56,13 +73,27 @@ const routes: Routes = [
   },
   {
     path: 'auth',
+    component: AuthLayoutComponent,
     children: [
       {
-        path: 'login',
-        component: LoginComponent
+        path: 'signin',
+        component: SigninComponent,
+      },
+      {
+        path: 'signup',
+        component: SignupComponent,
       }
     ]
-  }
+  },
+  // {
+  //   path: 'auth',
+  //   children: [
+  //     {
+  //       path: 'login',
+  //       component: LoginComponent
+  //     }
+  //   ]
+  // }
 
   // {
   //   path: 'user',
