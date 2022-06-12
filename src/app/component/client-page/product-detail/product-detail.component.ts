@@ -1,3 +1,4 @@
+import { LocalStorageService } from './../../../services/local-storage.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
@@ -10,8 +11,12 @@ import { Product } from 'src/app/types/Product';
 })
 export class ProductDetailComponent implements OnInit {
   product: Product;
+  cartItemValue: number = 1;
+  cartQty: number;
+
   constructor(private productService: ProductService,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private lsService: LocalStorageService
   ) {
     this.product = {
       _id: '',
@@ -20,8 +25,10 @@ export class ProductDetailComponent implements OnInit {
       img: '',
       desc: '',
       status: 0,
-
+      category: '',
+      sale_price: 0,
     };
+    this.cartQty = 0;
   }
 
   ngOnInit(): void {
@@ -34,6 +41,25 @@ export class ProductDetailComponent implements OnInit {
       // console.log(this.product);
 
     })
+  }
+  onInputValueChange(event: any) {
+    this.cartItemValue = event.target.value;
+  }
+
+  onAddToCart() {
+    // 1. Định nghĩa cấu trúc dữ liệu thêm vào giỏ
+    const addItem = {
+      _id: this.product._id,
+      name: this.product.name,
+      img: this.product.img,
+      price: this.product.price,
+      value: +this.cartItemValue,
+      quantity: +this.cartItemValue
+    };
+
+    this.lsService.setItem(addItem);
+    // 5. Cập nhật lại giá trị cho ô input value
+    this.cartQty = 1;
   }
 
 }

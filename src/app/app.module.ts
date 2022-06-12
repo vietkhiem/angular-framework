@@ -41,6 +41,7 @@ import { NewsComponent } from './component/client-page/news/news.component';
 import { ProductDetailComponent } from './component/client-page/product-detail/product-detail.component';
 import { SignupComponent } from './pages/auth/signup/signup.component';
 import { SigninComponent } from './pages/auth/signin/signin.component';
+import { CartComponent } from './component/cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +74,7 @@ import { SigninComponent } from './pages/auth/signin/signin.component';
     ProductDetailComponent,
     SignupComponent,
     SigninComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

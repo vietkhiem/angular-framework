@@ -16,7 +16,7 @@ export class ProductService {
     return this.http.get<Product[]>(environment.products);
   }
 
-  getProduct(id: number): Observable<Product> {
+  getProduct(id: string | number): Observable<Product> {
     return this.http.get<Product>(`${environment.products}/${id}`);
   }
 

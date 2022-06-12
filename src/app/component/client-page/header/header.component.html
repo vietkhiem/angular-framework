@@ -72,44 +72,28 @@
 							</div>
 							<div class="dropdown tg-themedropdown tg-minicartdropdown">
 								<a routerLink="javascript:void(0);" id="tg-minicart" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<span class="tg-themebadge">3</span>
+									<span class="tg-themebadge">
+										<app-cart></app-cart>
+									</span>
 									<i class="icon-cart"></i>
 									<span>$123.00</span>
 								</a>
 								<div class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-minicart">
 									<div class="tg-minicartbody">
-										<div class="tg-minicarproduct">
+										<div *ngFor="let item of cartItems" class="tg-minicarproduct">
 											<figure>
-												<img src="/assets/client/images/products/img-01.jpg" alt="image description">
+												<img src={{item.img}} width="50px" alt="image description" class="p-2">
 												
 											</figure>
 											<div class="tg-minicarproductdata">
-												<h5><a routerLink="javascript:void(0);">Our State Fair Is A Great Function</a></h5>
-												<h6><a routerLink="javascript:void(0);">$ 12.15</a></h6>
+												<h5><a routerLink="javascript:void(0);">{{item.name}}</a></h5>
+												<h6><a routerLink="javascript:void(0);">$ {{item.price}}</a></h6>
+												<h6><a routerLink="javascript:void(0);">Quantity {{item.value}}</a></h6>
 											</div>
 										</div>
-										<div class="tg-minicarproduct">
-											<figure>
-												<img src="/assets/client/images/products/img-02.jpg" alt="image description">
-												
-											</figure>
-											<div class="tg-minicarproductdata">
-												<h5><a routerLink="javascript:void(0);">Bring Me To Light</a></h5>
-												<h6><a routerLink="javascript:void(0);">$ 12.15</a></h6>
-											</div>
-										</div>
-										<div class="tg-minicarproduct">
-											<figure>
-												<img src="/assets/client/images/products/img-03.jpg" alt="image description">
-												
-											</figure>
-											<div class="tg-minicarproductdata">
-												<h5><a routerLink="javascript:void(0);">Have Faith In Your Soul</a></h5>
-												<h6><a routerLink="javascript:void(0);">$ 12.15</a></h6>
-											</div>
-										</div>
+										
 									</div>
-									<div class="tg-minicartfoot">
+									<div class="tg-minicartfoot p-3">
 										<a class="tg-btnemptycart" href="javascript:void(0);">
 											<i class="fa fa-trash-o"></i>
 											<span>Clear Your Cart</span>

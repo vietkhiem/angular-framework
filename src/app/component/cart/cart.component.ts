@@ -1,22 +1,20 @@
-import { ProductCart } from './../../../types/Product';
-import { LocalStorageService } from './../../../services/local-storage.service';
+import { LocalStorageService } from './../../services/local-storage.service';
+import { ProductCart } from './../../types/Product';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class CartComponent implements OnInit {
 
   cartItems: ProductCart[] = [];
   cartItemValues: number = 0;
 
   constructor(
     private lsService: LocalStorageService
-  ) {
-    this.cartItems = []
-  }
+  ) { }
 
   ngOnInit(): void {
     this.onSetCartItems();
@@ -30,6 +28,7 @@ export class HeaderComponent implements OnInit {
 
   onSetCartItems() {
     this.cartItems = this.lsService.getItem();
+
     this.cartItemValues = 0;
     this.cartItems.forEach(item => {
       this.cartItemValues += item.value;

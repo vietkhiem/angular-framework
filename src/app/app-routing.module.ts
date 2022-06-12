@@ -1,3 +1,4 @@
+import { CartComponent } from './component/cart/cart.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-product-detail/admin-product-detail.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
@@ -83,35 +84,10 @@ const routes: Routes = [
       }
     ]
   },
-  // {
-  //   path: 'auth',
-  //   children: [
-  //     {
-  //       path: 'login',
-  //       component: LoginComponent
-  //     }
-  //   ]
-  // }
-
-  // {
-  //   path: 'user',
-  //   component: UserComponent,
-
-  //   children: [
-  //     {
-  //       path: '',
-  //       component: UserComponent
-  //     },
-  //     {
-  //       path: 'create',
-  //       component: UserFormComponent
-  //     },
-  //     {
-  //       path: 'edit',
-  //       component: UserFormComponent
-  //     }
-  //   ]
-  // }
+  {
+    path: 'cart',
+    component: CartComponent,
+  }
 ];
 
 @NgModule({
