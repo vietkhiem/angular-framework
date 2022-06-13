@@ -1,3 +1,5 @@
+import { CategoryType } from './../../../types/Category';
+import { NgToastService } from 'ng-angular-popup';
 import { LocalStorageService } from './../../../services/local-storage.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -14,9 +16,12 @@ export class ProductDetailComponent implements OnInit {
   cartItemValue: number = 1;
   cartQty: number;
 
+
   constructor(private productService: ProductService,
     private activateRoute: ActivatedRoute,
-    private lsService: LocalStorageService
+    private lsService: LocalStorageService,
+    private toast: NgToastService,
+
   ) {
     this.product = {
       _id: '',
@@ -29,6 +34,7 @@ export class ProductDetailComponent implements OnInit {
       sale_price: 0,
     };
     this.cartQty = 0;
+
   }
 
   ngOnInit(): void {
@@ -53,6 +59,7 @@ export class ProductDetailComponent implements OnInit {
       name: this.product.name,
       img: this.product.img,
       price: this.product.price,
+      sale_price: this.product.sale_price,
       value: +this.cartItemValue,
       quantity: +this.cartItemValue
     };
@@ -60,6 +67,8 @@ export class ProductDetailComponent implements OnInit {
     this.lsService.setItem(addItem);
     // 5. Cập nhật lại giá trị cho ô input value
     this.cartQty = 1;
+    this.toast.success({ detail: 'Add to cart successfully' })
+
   }
 
 }

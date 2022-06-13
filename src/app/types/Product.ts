@@ -23,5 +23,5 @@ export type ProductCart = {
     img: string
     price: number,
     quantity: number,
-    value: number
+    value: number,
 };

@@ -8,14 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  userEmail: any;
   cartItems: ProductCart[] = [];
   cartItemValues: number = 0;
 
   constructor(
     private lsService: LocalStorageService
   ) {
-    this.cartItems = []
+    this.cartItems = [],
+      this.userEmail = '';
+
+  }
+
+  getUserEmail() {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+
+    if (loggedInUser) {
+      this.userEmail = JSON.parse(loggedInUser).user.email;
+
+    }
   }
 
   ngOnInit(): void {
@@ -26,6 +37,7 @@ export class HeaderComponent implements OnInit {
       // Khi serviceSubject.next('') thì subscribe sẽ được gọi
       this.onSetCartItems();
     });
+    this.getUserEmail();
   }
 
   onSetCartItems() {
@@ -33,6 +45,7 @@ export class HeaderComponent implements OnInit {
     this.cartItemValues = 0;
     this.cartItems.forEach(item => {
       this.cartItemValues += item.value;
+      this.cartItemValues += item.price * item.value
     });
   }
 

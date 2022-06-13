@@ -1,0 +1,32 @@
+<div>
+    <a routerLink="/admin/category/create">
+      <button class="btn btn-primary mb-5">Add New Category</button>
+    </a>
+  </div>
+  
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of categorys let i= index">
+        <td>{{i + 1}}</td>
+        <td>{{category.name}}</td>
+        
+        <td>
+          <!-- <a routerLink="/admin/books/{{product._id}}">Detail</a> -->
+          <!-- <a [routerLink]="['/admin', 'products', product.id]">
+            <button class="btn btn-info">Detail</button>
+          </a> -->
+          <a routerLink="/admin/category/edit/{{category._id}}">
+            <button class="btn btn-warning">Edit</button>
+          </a>
+          <button class="btn btn-danger m-5" (click)="onDelete(category._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

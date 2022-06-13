@@ -27,7 +27,25 @@
       class="form-control"
       formControlName="price"
     >
+    <app-show-validate
+      [field]="productForm.get('price')"
+      key="Giá sản phẩm"
+    ></app-show-validate>
   </div>
+
+  <div class="form-group">
+    <label for="">Price Sale</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="sale_price"
+    >
+    <app-show-validate
+      [field]="productForm.get('price')"
+      key="Giá sản phẩm"
+    ></app-show-validate>
+  </div>
+
   <div class="form-group">
     <label for="">Image</label>
     <input
@@ -35,6 +53,10 @@
       class="form-control"
       formControlName="img"
     >
+    <app-show-validate
+      [field]="productForm.get('img')"
+      key="Ảnh sản phẩm"
+    ></app-show-validate>
   </div>
   <div class="form-group">
     <label for="">Desc</label>
@@ -43,6 +65,18 @@
       class="form-control"
       formControlName="desc"
     >
+    <app-show-validate
+      [field]="productForm.get('desc')"
+      key="Mô tả sản phẩm"
+    ></app-show-validate>
+  </div>
+  <div class="form-group">
+    <label for="">Category</label>
+    <select class="form-select " aria-label="Default select example " formControlName="category">
+  
+      <option  value="{{categorys._id}}"  *ngFor=" let categorys of category " >{{categorys.name}}</option>
+  
+    </select>
   </div>
   <div class="form-group">
     <div class="form-check form-check-inline">

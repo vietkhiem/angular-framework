@@ -1,3 +1,5 @@
+import { AdminCategoryFormComponent } from './pages/admin/admin-category-form/admin-category-form.component';
+import { AdminCategoryListComponent } from './pages/admin/admin-category-list/admin-category-list.component';
 import { CartComponent } from './component/cart/cart.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-product-detail/admin-product-detail.component';
@@ -47,6 +49,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayoutComponent,
+    canActivate: [CanAccessAdminGuard],
     children: [
       {
         path: 'books',
@@ -67,6 +70,24 @@ const routes: Routes = [
             path: ':id',
             component: AdminProductDetailComponent
           }
+        ]
+      },
+      {
+        path: 'category',
+        children: [
+          {
+            path: '',
+            component: AdminCategoryListComponent
+          },
+
+          {
+            path: 'create',
+            component: AdminCategoryFormComponent
+          },
+          {
+            path: 'edit/:id',
+            component: AdminCategoryFormComponent
+          },
         ]
       },
     ]

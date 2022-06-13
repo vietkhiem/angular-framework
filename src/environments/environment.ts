@@ -9,7 +9,11 @@ export const environment = {
 
   products: `${apiUrl}/books`,
   signin: `${apiUrl}/signin`,
-  signup: `${apiUrl}/signup`
+  signup: `${apiUrl}/signup`,
+  categories: `${apiUrl}/category`,
+  user: `${apiUrl}/users`,
+
+
 };
 
 /*

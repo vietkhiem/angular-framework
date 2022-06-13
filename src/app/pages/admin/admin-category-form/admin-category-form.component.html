@@ -1,0 +1,20 @@
+<!-- Định nghĩa biến quản lý form -->
+<form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="">Category</label>
+      <!-- Định nghĩa thuộc tính để lắng nghe input -->
+      <input
+        type="text"
+        class="form-control"
+        formControlName="name"
+      >
+      <app-show-validate
+      [field]="categoryForm.get('name')"
+      key="Tên danh mục"
+    ></app-show-validate>
+  </div>
+        <button
+        class="btn btn-success"
+        [disabled]="!categoryForm.valid"
+      >Submit</button>
+  </form>

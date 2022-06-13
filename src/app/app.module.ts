@@ -42,6 +42,8 @@ import { ProductDetailComponent } from './component/client-page/product-detail/p
 import { SignupComponent } from './pages/auth/signup/signup.component';
 import { SigninComponent } from './pages/auth/signin/signin.component';
 import { CartComponent } from './component/cart/cart.component';
+import { AdminCategoryListComponent } from './pages/admin/admin-category-list/admin-category-list.component';
+import { AdminCategoryFormComponent } from './pages/admin/admin-category-form/admin-category-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +77,8 @@ import { CartComponent } from './component/cart/cart.component';
     SignupComponent,
     SigninComponent,
     CartComponent,
+    AdminCategoryListComponent,
+    AdminCategoryFormComponent,
   ],
   imports: [
     BrowserModule,
