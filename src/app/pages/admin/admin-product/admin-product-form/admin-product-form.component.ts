@@ -1,3 +1,4 @@
+import { Product } from './../../../../types/Product';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -5,12 +6,14 @@ import { NgToastService } from 'ng-angular-popup';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 import { BookCate_Type } from 'src/app/types/Category';
+import axios from 'axios';
 @Component({
   selector: 'app-admin-product-form',
   templateUrl: './admin-product-form.component.html',
   styleUrls: ['./admin-product-form.component.css']
 })
 export class AdminProductFormComponent implements OnInit {
+  products: Product;
   productForm: FormGroup;
   productId: string;
   category: BookCate_Type[];
@@ -21,6 +24,16 @@ export class AdminProductFormComponent implements OnInit {
     private categoryService: CategoryService,
     private toast: NgToastService
   ) {
+    this.products = {
+      _id: '',
+      name: '',
+      price: 0,
+      sale_price: 0,
+      img: '',
+      category: '',
+      desc: '',
+      status: 0
+    }
     this.productForm = new FormGroup({
 
       name: new FormControl('', [
@@ -72,7 +85,7 @@ export class AdminProductFormComponent implements OnInit {
         this.productForm.patchValue({
           name: data.name,
           price: data.price,
-          img: data.img,
+          img: this.products.img,
           desc: data.desc,
           category: data.category,
           sale_price: data.sale_price
@@ -119,6 +132,28 @@ export class AdminProductFormComponent implements OnInit {
     }, () => {
       this.toast.error({ detail: 'add failed' })
     })
+  }
 
+  uploadHandler(event: any) {
+    if (event.target.files[0] && event.target.files.length) {
+      const file = event.target.files[0];
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "vietkhiem");
+
+      axios({
+        url: "https://api.cloudinary.com/v1_1/fpt-polytechnic-sv/image/upload",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-formendcoded",
+        },
+        data: formData,
+      }).then((res) => {
+        this.products.img = res.data.secure_url;
+        this.productForm.patchValue({
+          img: this.products.img
+        })
+      });
+    }
   }
 }
