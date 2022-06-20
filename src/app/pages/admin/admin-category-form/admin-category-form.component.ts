@@ -64,7 +64,7 @@ export class AdminCategoryFormComponent implements OnInit {
     }
 
     // 2. Call API (Cần định nghĩa service và router điều hướng)
-    return this.categoryService.createCategory(submitData).subscribe((data) => {
+    return this.categoryService.addCategory(submitData).subscribe((data) => {
       this.toast.success({ detail: 'Add successful' })
 
       // 3. Sau khi API call thành công sẽ điều hướng về danh sách

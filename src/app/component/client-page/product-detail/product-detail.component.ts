@@ -1,4 +1,4 @@
-import { CategoryType } from './../../../types/Category';
+import { BookCate_Type } from './../../../types/Category';
 import { NgToastService } from 'ng-angular-popup';
 import { LocalStorageService } from './../../../services/local-storage.service';
 import { ActivatedRoute } from '@angular/router';

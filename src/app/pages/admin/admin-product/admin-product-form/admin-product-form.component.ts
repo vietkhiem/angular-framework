@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
-import { CategoryType } from 'src/app/types/Category';
+import { BookCate_Type } from 'src/app/types/Category';
 @Component({
   selector: 'app-admin-product-form',
   templateUrl: './admin-product-form.component.html',
@@ -13,7 +13,7 @@ import { CategoryType } from 'src/app/types/Category';
 export class AdminProductFormComponent implements OnInit {
   productForm: FormGroup;
   productId: string;
-  category: CategoryType[];
+  category: BookCate_Type[];
   constructor(
     private productService: ProductService, // cung cấp createProduct
     private router: Router, // cung cấp navigate điều hướng
@@ -58,7 +58,7 @@ export class AdminProductFormComponent implements OnInit {
   }
 
   onGetList() {
-    this.categoryService.getCategorys().subscribe((data) => {
+    this.categoryService.getCategories().subscribe((data) => {
       this.category = data;
       console.log(data)
     });

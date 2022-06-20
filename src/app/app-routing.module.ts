@@ -1,3 +1,5 @@
+import { UserFormComponent } from './pages/admin-user/user-form/user-form.component';
+import { UserListComponent } from './pages/admin-user/user-list/user-list.component';
 import { AdminCategoryFormComponent } from './pages/admin/admin-category-form/admin-category-form.component';
 import { AdminCategoryListComponent } from './pages/admin/admin-category-list/admin-category-list.component';
 import { CartComponent } from './component/cart/cart.component';
@@ -7,8 +9,6 @@ import { AdminProductListComponent } from './pages/admin/admin-product/admin-pro
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { HomeComponent } from './home/home.component';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
-import { UserFormComponent } from './user/user-form/user-form.component';
-import { UserComponent } from './user/user.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CanAccessAdminGuard } from './guard/can-access-admin.guard';
@@ -40,10 +40,6 @@ const routes: Routes = [
           }
         ]
       },
-      {
-        path: 'user',
-        component: UserComponent
-      }
     ]
   },
   {
@@ -90,6 +86,27 @@ const routes: Routes = [
           },
         ]
       },
+      {
+        path: 'users',
+        children: [
+          {
+            path: '',
+            component: UserListComponent
+          },
+          {
+            path: 'create',
+            component: UserFormComponent
+          },
+          {
+            path: 'edit/:id',
+            component: UserFormComponent
+          },
+          {
+            path: ':id',
+            component: UserFormComponent
+          }
+        ]
+      }
     ]
   },
   {

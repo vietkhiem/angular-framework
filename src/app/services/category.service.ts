@@ -1,31 +1,36 @@
+import { BookCate_Type } from './../types/Category';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { CategoryCreate, CategoryType } from '../types/Category';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
 
-  constructor(private http: HttpClient) { }
-  getCategorys(): Observable<CategoryType[]> {
-    return this.http.get<CategoryType[]>(environment.categories);
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  getCategories(): Observable<BookCate_Type[]> {
+    return this.http.get<BookCate_Type[]>(environment.category);
   }
-  getCategory(id: string): Observable<CategoryType> {
-    return this.http.get<CategoryType>(`${environment.categories}/edit/${id}`);
+
+  getCategory(id: string): Observable<BookCate_Type> {
+    return this.http.get<BookCate_Type>(environment.category + '/' + id);
   }
-  getCategoryseach(id: string): Observable<CategoryType> {
-    return this.http.get<CategoryType>(`${environment.categories}/${id}`);
+
+  deleteCategory(id: string): Observable<BookCate_Type> {
+    return this.http.delete<BookCate_Type>(environment.category + '/' + id);
   }
-  deleteCategory(id: string | number): Observable<any> {
-    return this.http.delete(`${environment.categories}/${id}`);
+
+  addCategory(category: BookCate_Type): Observable<BookCate_Type> {
+    return this.http.post<BookCate_Type>(environment.category, category);
   }
-  createCategory(data: CategoryCreate): Observable<CategoryType> {
-    return this.http.post<CategoryType>(`${environment.categories}`, data);
+
+  updateCategory(id: string, category: BookCate_Type): Observable<BookCate_Type> {
+    return this.http.put<BookCate_Type>(environment.category + '/' + id, category);
   }
-  updateCategory(id: number | string, data: CategoryCreate): Observable<CategoryType> {
-    return this.http.put<CategoryType>(`${environment.categories}/${id}`, data);
-  }
+
 }

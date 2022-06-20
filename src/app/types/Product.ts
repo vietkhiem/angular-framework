@@ -24,4 +24,5 @@ export type ProductCart = {
     price: number,
     quantity: number,
     value: number,
+    sale_price: number
 };

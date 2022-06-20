@@ -18,9 +18,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { FormComponent } from './form/form.component';
 import { ShowValidateComponent } from './component/show-validate/show-validate.component';
-import { UserComponent } from './user/user.component';
-import { UserListComponent } from './user/user-list/user-list.component';
-import { UserFormComponent } from './user/user-form/user-form.component';
 import { HomeComponent } from './home/home.component';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
@@ -44,6 +41,9 @@ import { SigninComponent } from './pages/auth/signin/signin.component';
 import { CartComponent } from './component/cart/cart.component';
 import { AdminCategoryListComponent } from './pages/admin/admin-category-list/admin-category-list.component';
 import { AdminCategoryFormComponent } from './pages/admin/admin-category-form/admin-category-form.component';
+import { UserListComponent } from './pages/admin-user/user-list/user-list.component';
+import { UserFormComponent } from './pages/admin-user/user-form/user-form.component';
+import { CategoryComponent } from './component/client-page/category/category.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,9 +55,6 @@ import { AdminCategoryFormComponent } from './pages/admin/admin-category-form/ad
     AvatarComponent,
     FormComponent,
     ShowValidateComponent,
-    UserComponent,
-    UserListComponent,
-    UserFormComponent,
     HomeComponent,
     ClientLayoutComponent,
     AdminLayoutComponent,
@@ -79,6 +76,9 @@ import { AdminCategoryFormComponent } from './pages/admin/admin-category-form/ad
     CartComponent,
     AdminCategoryListComponent,
     AdminCategoryFormComponent,
+    UserListComponent,
+    UserFormComponent,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,

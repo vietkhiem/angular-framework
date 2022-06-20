@@ -45,8 +45,11 @@ export class HeaderComponent implements OnInit {
     this.cartItemValues = 0;
     this.cartItems.forEach(item => {
       this.cartItemValues += item.value;
-      this.cartItemValues += item.price * item.value
     });
+  }
+
+  getTotalPrice() {
+    return this.cartItems.reduce((a, b) => a + b.value * b.sale_price, 0);
   }
 
 }

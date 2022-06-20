@@ -1,0 +1,29 @@
+<div>
+    <a routerLink="/admin/users/create">
+      <button class="btn btn-primary mb-5">Add New User</button>
+    </a>
+  </div>
+  
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users let i= index">
+        <td>{{i + 1}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.password}}</td>
+        <td>
+          <!-- <a routerLink="/admin/category/edit/{{user._id}}">
+            <button class="btn btn-warning">Edit</button>
+          </a> -->
+          <button class="btn btn-danger m-5" (click)="onDelete(user._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

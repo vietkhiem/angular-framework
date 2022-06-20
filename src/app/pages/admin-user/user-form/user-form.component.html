@@ -1,0 +1,34 @@
+<!-- Định nghĩa biến quản lý form -->
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="">Email</label>
+      <!-- Định nghĩa thuộc tính để lắng nghe input -->
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+      >
+      <app-show-validate
+      [field]="userForm.get('email')"
+      key="Email"
+    ></app-show-validate>
+    </div>
+
+    <div class="form-group">
+        <label for="">Password</label>
+        <!-- Định nghĩa thuộc tính để lắng nghe input -->
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+        >
+        <app-show-validate
+        [field]="userForm.get('password')"
+        key="Password"
+      ></app-show-validate>
+
+    </div>
+        <button class="btn btn-success" [disabled]="!userForm.valid" >
+            Submit
+        </button>
+  </form>

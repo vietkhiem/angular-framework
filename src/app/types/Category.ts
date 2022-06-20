@@ -1,9 +1,6 @@
-export type CategoryType = {
-    _id: string,
-    name: string,
 
-
-};
-export type CategoryCreate = {
-    name: string,
-};
+export type BookCate_Type = {
+    _id: string;
+    name: string;
+    status: number;
+}

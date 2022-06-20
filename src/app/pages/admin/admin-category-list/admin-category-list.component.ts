@@ -1,4 +1,4 @@
-import { CategoryType } from './../../../types/Category';
+import { BookCate_Type } from './../../../types/Category';
 import { Component, OnInit } from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
 import { CategoryService } from 'src/app/services/category.service';
@@ -10,7 +10,7 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class AdminCategoryListComponent implements OnInit {
 
-  categorys: CategoryType[];
+  categorys: BookCate_Type[];
   constructor(private categoryService: CategoryService,
     private toast: NgToastService) {
     this.categorys = [];
@@ -22,7 +22,7 @@ export class AdminCategoryListComponent implements OnInit {
     this.onGetList();
   }
   onGetList() {
-    this.categoryService.getCategorys().subscribe((data) => {
+    this.categoryService.getCategories().subscribe((data) => {
       this.categorys = data;
     });
   }

@@ -15,9 +15,9 @@
                             <a routerLink="/book/{{product._id}}"> <img src={{product.img}} alt="" ></a>
                         </div>
                     </div>
-                    <a class="tg-btnaddtowishlist" href="javascript:void(0);">
+                    <a class="tg-btnaddtowishlist" routerLink="/book/{{product._id}}">
                         <i class="icon-heart"></i>
-                        <span>add to wishlist</span>
+                        <span>Detail</span>
                     </a>
                 </figure>
                 <div class="tg-postbookcontent">
@@ -39,10 +39,10 @@
                         <ins>${{product.price}}</ins>
                         <del>${{product.sale_price}}</del>
                     </span>
-                    <a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
+                    <!-- <a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
                         <i class="fa fa-shopping-basket"></i>
                         <em>Add To Basket</em>
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>
